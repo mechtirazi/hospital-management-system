@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Hôpital</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .menu_item{
+            color: white;
+
+        }
+        :root {
+            --primary-color: #4B0082;
+            --primary-hover: #6A1D91;
+            --secondary-color: #fff;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --text-muted: #666;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            --border-radius: 10px;
+            --transition-time: 0.3s;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .sidebar {
+            width: 210px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 30px 20px;
+            transition: transform var(--transition-time) ease;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu-button {
+            background: var(--secondary-color);
+            border: none;
+            padding: 16px;
+            font-size: 26px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-radius: 50%;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-time), box-shadow var(--transition-time);
+            color: white;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.1);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+        }
+
+        .sidebar ul li {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            transition: background var(--transition-time), transform var(--transition-time);
+        }
+
+        .sidebar ul li:hover {
+            background: var(--primary-hover);
+            transform: translateX(10px);
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            margin-left: 250px;
+            transition: margin-left var(--transition-time) ease;
+            background-color: var(--secondary-color);
+            box-shadow: var(--box-shadow);
+            min-height: 100vh;
+            border-radius: 10px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--secondary-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-time), box-shadow var(--transition-time);
+        }
+
+        .card img {
+            max-width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .card h3 {
+            margin-top: 15px;
+            font-size: 20px;
+            color: var(--text-color);
+        }
+
+        .card p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .chart-container {
+            margin-top: 40px;
+            width: 100%;
+            height: 400px;
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin-top: auto;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+
+        .contact-card {
+            flex: 0 0 auto;
+            width: 250px;
+            transition: transform var(--transition-time), box-shadow var(--transition-time);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .contact-card img {
+            width: 50px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .contact-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        .contact-card ul li {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+
+            .sidebar {
+                width: 200px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+
+            .sidebar ul li {
+                font-size: 16px;
+                padding: 10px 0;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 150px;
+            }
+
+            .menu-button {
+                top: 15px;
+                left: 15px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="sidebar" id="sidebar">
+        <button class="menu-button" onclick="toggleMenu()">🎈</button>
+
+
+        <h2>Menu</h2>
+        <ul>
+           <a href="/api/medecins/Listmedecins"  style="color: white; text-decoration: none;"> <li>Liste Médecins</li></a>
+           <a href="/api/patient/patients"  style="color: white;  text-decoration: none;"> <li>Liste Patients</li></a>
+            <a href="api/RendezVous/rendezvous"  style="color: white;  text-decoration: none;"><li>Rendez-vous</li></a>
+            <a href="/api/examen/listExamen"  style="color: white;  text-decoration: none;"><li>Examens</li></a>
+            <a href="/listemploye" style="color: white;  text-decoration: none;"><li>Liste employe</li></a>
+            <li onclick="scrollToContact()">Contact</li>
+        </ul>
+    </div>
+    <div class="content" id="content">
+        <h1>Tableau de Bord</h1>
+        <div class="cards">
+            <a href="/api/medecins/Listmedecins">
+            <div class="card">
+                
+                <img src="https://png.pngtree.com/png-clipart/20240115/original/pngtree-doctor-character-wearing-glasses-3d-cute-professional-three-dimensional-png-image_14117389.png" alt="Médecins">
+                <h3>Médecins</h3>
+            
+            </div>
+        </a>
+            <a href="/api/patient/patients">
+            <div class="card"><img src="https://cdn.vectorstock.com/i/1000v/07/33/tiny-cute-cartoon-patient-man-character-broken-vector-25530733.jpg" alt="Patients">
+                <h3>Patients</h3>
+            </div>
+        </a>
+        <a href="api/RendezVous/rendezvous">
+            <div class="card"><img src="https://img.freepik.com/vecteurs-premium/illustration-graphique-vectorielle-du-personnage-dessin-anime-planification-rendez-vous_516790-2391.jpg" alt="Rendez-vous">
+                <h3> Rendez-vous</h3>
+            </div>
+        </a>
+        <a href="/api/examen/listExamen">
+            <div class="card"><img src="https://static.vecteezy.com/ti/vecteur-libre/p1/963107-dessin-homme-laissant-examen-gratuit-vectoriel.jpg" alt="Examens">
+                <h3>Examens</h3>
+            </div>
+        </a>
+            
+            <a href="/listemploye">
+            <div class="card">
+                <img src="https://png.pngtree.com/png-clipart/20240224/original/pngtree-man-with-blank-sign-frame-photo-png-image_14400026.png" alt="Ressources Humaines">
+                <h3>Employés</h3>
+           
+            </div>     
+        </a>      
+            <a href="/notification">
+            <div class="card">
+                <img src="https://cdn-icons-png.freepik.com/512/6101/6101429.png" alt="Notifications">
+                <h3>Notifications</h3>
+            </div>
+            
+        </div>
+        <div class="chart-container">
+            <canvas id="revenuChart"></canvas>
+        </div>
+        <div class="contact-form" id="contactForm" style="display: none;">
+            <h2>Contactez-nous</h2>
+            <form>
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre email" required>
+                <textarea placeholder="Votre message" rows="5" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            sidebar.classList.toggle('hidden');
+            content.classList.toggle('collapsed');
+        }
+
+        function scrollToContact() {
+    document.getElementById("contact-section").scrollIntoView({ behavior: "smooth" });
+}
+
+
+        const ctx = document.getElementById('revenuChart').getContext('2d');
+        const revenuChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Revenu Mensuel',
+                    data: [1000, 1500, 2000, 2500, 3000, 3500],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <section id="contact-section" class="contact">
+        <h2>CONTACTEZ NOUS</h2>
+        <div class="contact-container">
+            <!-- Tunisie -->
+            <div class="contact-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg" alt="Tunisie" />
+                <h3>Tunisie</h3>
+                <p><strong>Numéro de téléphone :</strong></p>
+                <p>Clinisys Tunisie</p>
+                <ul>
+                    <li>Sfax : +216 24 231 400</li>
+                    <li>Tunis : +216 26 731 400</li>
+                    <li>Sousse : +216 26 838 074</li>
+                    <li>Djerba : +216 26 838 071</li>
+                </ul>
+            </div>
+
+            <!-- Maroc -->
+            <div class="contact-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg" alt="Maroc" />
+                <h3>Maroc</h3>
+                <p><strong>Numéro de téléphone :</strong></p>
+                <p>Clinisys Maroc</p>
+                <ul>
+                    <li>Chargé d'affaire : +212 779-990351</li>
+                    <li>Chargé Marketing : +212 782-857541</li>
+                </ul>
+            </div>
+
+            <!-- Egypte -->
+            <div class="contact-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg" alt="Egypte" />
+                <h3>Egypte</h3>
+                <p><strong>Numéro de téléphone :</strong></p>
+                <p>Clinisys Egypte</p>
+                <ul>
+                    <li>Caire : +216 25 731 730</li>
+                </ul>
+            </div>
+
+            <!-- Libye -->
+            <div class="contact-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg" alt="Libye" />
+                <h3>Libye</h3>
+                <p><strong>Numéro de téléphone :</strong></p>
+                <p>Clinisys Libye</p>
+                <ul>
+                    <li>Tripoli, Ben Ghazi, Misurata : +218 92-3617025</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

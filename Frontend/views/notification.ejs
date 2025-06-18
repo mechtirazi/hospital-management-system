@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques & Avis Clients</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #4B0082;
+            --secondary-color: #fff;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+            --transition-time: 0.3s;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .chart-container {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+        }
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform var(--transition-time);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review-content {
+            flex: 1;
+        }
+
+        .review-content h4 {
+            margin: 5px 0;
+            color: var(--primary-color);
+        }
+
+        .stars {
+            color: gold;
+        }
+
+        #btnRetour {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #btnRetour:hover {
+            background-color: #5a4dbf;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #btnRetour::before {
+            content: "←";
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Statistiques des Notifications</h1>
+        <div class="chart-container">
+            <canvas id="notifChart"></canvas>
+        </div>
+
+        <h1>Avis des Clients</h1>
+        <div class="reviews-container">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar" class="avatar">
+                <div class="review-content">
+                    <h4>Jean Dupont</h4>
+                    <div class="stars">★★★★★</div>
+                    <p>Excellent service, très professionnel et à l'écoute.</p>
+                </div>
+            </div>
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar" class="avatar">
+                <div class="review-content">
+                    <h4>Sophie Martin</h4>
+                    <div class="stars">★★★★☆</div>
+                    <p>Très bon accueil et personnel compétent.</p>
+                </div>
+            </div>
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Avatar" class="avatar">
+                <div class="review-content">
+                    <h4>Marc Lefevre</h4>
+                    <div class="stars">★★★☆☆</div>
+                    <p>Bonne expérience mais quelques points à améliorer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('notifChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin'],
+                datasets: [{
+                    label: 'Nombre de Notifications',
+                    data: [5, 10, 15, 20, 25, 30],
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+<br>        
+<a href="/acceuil" style="text-decoration: none;"><button id="btnRetour">Retour</button></a>
+</body>
+
+</html>

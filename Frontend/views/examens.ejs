@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examens du Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #6a5acd;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #6a5acd;
+            color: white;
+        }
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #6a5acd;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #5a4dbc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Examens du Patient</h1>
+    <h2>Nom du Patient: <%= patient.nom %> <%= patient.prenom %></h2>
+     <!-- Bouton pour ajouter un nouvel examen -->
+     <a href="/api/examen/ajouter-examen-de-patient?patientId=<%= patient.id %>" class="button">Ajouter un Examen</a>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Type d'Examen</th>
+                <th>Date de l'Examen</th>
+                <th>Résultat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (examens.length > 0) { %>
+                <% examens.forEach(examen => { %>
+                    <tr>
+                        <td><%= examen.typeExamen %></td>
+                        <td><%= new Date(examen.dateExamen).toLocaleDateString() %></td>
+                        <td><%= examen.resultat %></td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3" style="text-align: center;">Aucun examen trouvé</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <a href="/api/patient/patients" class="back-button">Retour à la liste des patients </a>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Medecin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #6a0dad;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            font-size: 18px;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #6a0dad;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #6a0dad;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #8a2be2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Détails des médecins</h1>
+        <div class="info"><span class="label">Code:</span> <%= medecin.code %></div>
+        <div class="info"><span class="label">Nom:</span> <%= medecin.nom %></div>
+        <div class="info"><span class="label">Specialité:</span> <%= medecin.specialite %></div>
+        <div class="info"><span class="label">Email:</span> <%= medecin.email %></div>
+        <div class="info"><span class="label">Adresse:</span> <%= medecin.adresse %></div>
+        <div class="button-container">
+            <a href="/api/medecins/Listmedecins" class="button">Retour vers la Liste </a>
+        </div>
+    </div>
+</body>
+</html>

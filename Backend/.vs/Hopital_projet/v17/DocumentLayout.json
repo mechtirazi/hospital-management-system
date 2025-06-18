@@ -1,0 +1,260 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\controllers\\rendezvouscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\controllers\\rendezvouscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\model\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\model\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\controllers\\medecinscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\controllers\\medecinscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\model\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\model\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\model\\medecin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\model\\medecin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\model\\examen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\model\\examen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\model\\rendezvous.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\model\\rendezvous.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\controllers\\examenscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\controllers\\examenscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\hopital_projet.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\hopital_projet.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|c:\\users\\msi\\source\\repos\\hopital_projet\\hopital_projet\\hopital_projet.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{BDD03ED1-BD12-426B-9902-010939C7242F}|Hopital_projet\\Hopital_projet.csproj|solutionrelative:hopital_projet\\hopital_projet.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Hopital_projet\\Controllers\\UserController.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAgwE0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:21:33.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\User.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\User.cs",
+              "RelativeToolTip": "Hopital_projet\\Model\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T13:16:16.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MedecinsController.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\MedecinsController.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Controllers\\MedecinsController.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\MedecinsController.cs",
+              "RelativeToolTip": "Hopital_projet\\Controllers\\MedecinsController.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAuwAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T22:45:17.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RendezVous.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\RendezVous.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Model\\RendezVous.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\RendezVous.cs",
+              "RelativeToolTip": "Hopital_projet\\Model\\RendezVous.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T11:35:17.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Medecin.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\Medecin.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Model\\Medecin.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\Medecin.cs",
+              "RelativeToolTip": "Hopital_projet\\Model\\Medecin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T23:03:37.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\Patient.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Model\\Patient.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\Patient.cs",
+              "RelativeToolTip": "Hopital_projet\\Model\\Patient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T11:11:44.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Model\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Hopital_projet\\Model\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAQwBEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T23:04:29.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RendezVousController.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\RendezVousController.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Controllers\\RendezVousController.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\RendezVousController.cs",
+              "RelativeToolTip": "Hopital_projet\\Controllers\\RendezVousController.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAAAEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T11:38:33.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\appsettings.json",
+              "RelativeDocumentMoniker": "Hopital_projet\\appsettings.json",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\appsettings.json",
+              "RelativeToolTip": "Hopital_projet\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-26T22:51:36.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Program.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Program.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Program.cs",
+              "RelativeToolTip": "Hopital_projet\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T22:51:39.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PatientsController.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\PatientsController.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Controllers\\PatientsController.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\PatientsController.cs",
+              "RelativeToolTip": "Hopital_projet\\Controllers\\PatientsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T11:15:09.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ExamensController.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\ExamensController.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Controllers\\ExamensController.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Controllers\\ExamensController.cs",
+              "RelativeToolTip": "Hopital_projet\\Controllers\\ExamensController.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAswGAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T11:18:28.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Examen.cs",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\Examen.cs",
+              "RelativeDocumentMoniker": "Hopital_projet\\Model\\Examen.cs",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Model\\Examen.cs",
+              "RelativeToolTip": "Hopital_projet\\Model\\Examen.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T11:08:19.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Hopital_projet",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Hopital_projet.csproj",
+              "RelativeDocumentMoniker": "Hopital_projet\\Hopital_projet.csproj",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Hopital_projet.csproj",
+              "RelativeToolTip": "Hopital_projet\\Hopital_projet.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-27T18:14:23.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Hopital_projet.http",
+              "DocumentMoniker": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Hopital_projet.http",
+              "RelativeDocumentMoniker": "Hopital_projet\\Hopital_projet.http",
+              "ToolTip": "C:\\Users\\msi\\source\\repos\\Hopital_projet\\Hopital_projet\\Hopital_projet.http",
+              "RelativeToolTip": "Hopital_projet\\Hopital_projet.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-01-26T22:56:23.14Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

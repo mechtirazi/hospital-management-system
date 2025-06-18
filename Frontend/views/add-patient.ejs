@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Nouveau Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #6a5acd;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus {
+            border-color: #6a5acd;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5b4b8b;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ajouter un Nouveau Patient</h1>
+
+        <!-- Form to add a new patient -->
+        <form action="/api/patient/add-patients" method="POST">
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required maxlength="255" placeholder="Nom du patient">
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="prenom" required maxlength="255" placeholder="Prénom du patient">
+            </div>
+
+            <div class="form-group">
+                <label for="dateNaissance">Date de Naissance:</label>
+                <input type="date" id="dateNaissance" name="dateNaissance" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="email@exemple.com">
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone:</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="Téléphone du patient">
+            </div>
+
+            <div class="form-group">
+                <label for="adresse">Adresse:</label>
+                <input type="text" id="adresse" name="adresse" placeholder="Adresse du patient">
+            </div>
+
+            <button type="submit">Ajouter le Patient</button>
+        </form>
+    </div>
+
+</body>
+</html>

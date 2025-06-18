@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Examens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1 {
+            color: #6a5acd;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #6a5acd;
+            color: white;
+        }
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #6a5acd;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #5a4dbc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Liste des Examens</h1>
+    <h2>Examens dans l'Hôpital</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Type d'Examen</th>
+                <th>Date de l'Examen</th>
+                <th>Résultat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const examType in groupedExams) { %>
+                <% let firstRow = true; %> <!-- Flag to track the first row of each exam group -->
+                <% groupedExams[examType].forEach((exam) => { %>
+                    <tr>
+                        <% if (firstRow) { %>
+                            <!-- Display the exam type only once for the first row -->
+                            <td rowspan="<%= groupedExams[examType].length %>"><%= examType %></td>
+                            <% firstRow = false; %> <!-- Set the flag to false after the first row -->
+                        <% } %>
+                        <td><%= new Date(exam.dateExamen).toLocaleDateString() %></td>
+                        <td><%= exam.resultat %></td>
+                    </tr>
+                <% }); %>
+            <% } %>
+        </tbody>
+    </table>
+
+    <a href="/api/patient/patients" class="back-button">Retour à la liste des patients</a>
+
+</body>
+</html>

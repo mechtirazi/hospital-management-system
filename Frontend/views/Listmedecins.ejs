@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Medecins</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f3f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6a1b9a;  /* Violet color for header */
+            margin-top: 50px;
+            font-size: 2.5em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #6a1b9a; /* Violet header */
+            color: white;
+            font-size: 1.2em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f3e5f5; /* Light violet for even rows */
+        }
+
+        tr:hover {
+            background-color: #e1bee7; /* Slight darken effect for row hover */
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-modifier {
+            background-color: #8e24aa; /* Violet */
+            color: white;
+        }
+
+        .btn-supprimer {
+            background-color: #d32f2f; /* Red for delete */
+            color: white;
+        }
+
+        .btn-consulter {
+            background-color: #1976d2; /* Blue for view */
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .no-data {
+            text-align: center;
+            font-size: 1.2em;
+            color: #999;
+        }
+       
+        #btnRetour {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #btnRetour:hover {
+            background-color: #5a4dbf;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #btnRetour::before {
+            content: "←";
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Liste des médecins</h1>
+        <button class="btn btn-ajouter" onclick="window.location.href='/api/medecins/ajouteMedecin'">Ajouter un Médecin</button>
+
+        <% if (medecins && medecins.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Nom</th>
+                        <th>Specialite</th>
+                        <th>Email</th>
+                        <th>Adresse</th>
+                        <th>Actions</th> <!-- Add an extra column for buttons -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <% medecins.forEach(function(medecin) { %>
+                        <tr>
+                            <td><%= medecin.code %></td>
+                            <td><%= medecin.nom %></td>
+                            <td><%= medecin.specialite %></td>
+                            <td><%= medecin.email %></td>
+                            <td><%= medecin.adresse %></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <!-- Edit Button -->
+                                    <button class="btn btn-modifier"><a href="/api/medecins/edit/<%= medecin.code %>">Modifier</a></button>
+                                    <!-- Delete Button -->
+                                    <button class="btn btn-supprimer" data-code="<%= medecin.code %>"> Supprimer</button>
+
+                                    
+                                    <!-- View Button -->
+                                    <button class="btn btn-consulter" onclick="window.location.href='/api/medecins/view/<%= medecin.code %>'">Consulter</button>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <br>
+            <a href="/acceuil" style="text-decoration: none;"><button id="btnRetour">Retour</button></a>
+        <% } else { %>
+            <p class="no-data">No medecins available.</p>
+        <% } %>
+
+    </div>
+    <<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(document).on("click", ".btn-supprimer", function() {
+        var medecinCode = $(this).data("code");
+        var row = $(this).closest("tr"); // Récupère la ligne du tableau
+    
+        if (confirm("Voulez-vous vraiment supprimer ce médecin ?")) {
+          $.ajax({
+            url: '/api/medecins/deletemedecin/' + medecinCode,
+            type: 'DELETE',
+            success: function() {
+              row.remove(); // Supprime la ligne du tableau sans recharger la page
+            },
+            error: function(xhr, status, error) {
+              alert('Erreur lors de la suppression');
+            }
+          });
+        }
+      });
+    </script>
+    
+
+</body>
+</html>

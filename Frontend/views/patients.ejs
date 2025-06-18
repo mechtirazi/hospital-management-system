@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Patients</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #6a5acd; color: white; }
+        .btn-add { background-color: #6a5acd; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; display: inline-block; }
+        .btn-add:hover { background-color: #5b4b8b; }
+
+        #btnRetour {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #btnRetour:hover {
+            background-color: #5a4dbf;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #btnRetour::before {
+            content: "←";
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des Patients</h1>
+    
+    <!-- Button to Add New Patient -->
+    <a href="/api/patient/add-patient" class="btn-add">Ajouter un Patient</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de Naissance</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% patients.forEach(patient => { %>
+                <tr>
+                    <td><%= patient.nom %></td>
+                    <td><%= patient.prenom %></td>
+                    <td><%= new Date(patient.dateNaissance).toLocaleDateString() %></td>
+                    <td><%= patient.email %></td>
+                    <td>
+                        <a href="/api/examen/examens?patientId=<%= patient.id %>">Voir Examens</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <br>
+    <a href="/acceuil" style="text-decoration: none;"><button id="btnRetour">Retour</button></a>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails des Employés - Hôpital</title>
+    <style>
+        :root {
+            --primary-color: #4B0082;
+            --primary-hover: #6A1D91;
+            --secondary-color: #fff;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --text-muted: #666;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition-time: 0.3s;
+            --accent-color: #ff4081;
+            --header-gradient: linear-gradient(135deg, #6A1D91, #4B0082);
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        .header {
+            background: var(--header-gradient);
+            color: var(--secondary-color);
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .employee-container {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .employee-card {
+            background-color: var(--secondary-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-time), box-shadow var(--transition-time), background-color var(--transition-time);
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .employee-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+            background-color: var(--background-color);
+        }
+
+        .employee-card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .employee-card p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin: 5px 0;
+        }
+
+        .employee-card .position {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+        .employee-card .phone, .employee-card .email {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .employee-card .email a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-time);
+        }
+
+        .employee-card .email a:hover {
+            color: var(--accent-color);
+        }
+
+        .employee-card .contact-icons {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .employee-card .contact-icons i {
+            font-size: 18px;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .employee-card .contact-icons i:hover {
+            transform: scale(1.2);
+        }
+
+        .back-button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 12px 25px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            text-align: center;
+            transition: background-color var(--transition-time), transform var(--transition-time);
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.05);
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+
+
+        
+        <h1>Détails des Employés</h1>
+    </div>
+
+    <div class="employee-container" id="employeeList">
+        <!-- Détails des employés seront insérés ici -->
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">Retour</button>
+
+    <script>
+        // Simuler des données des employés
+        const employees = [
+            { id: 1, name: 'Ahmed Ben Ali', position: 'Médecin', phone: '+216 24 123 456', email: 'ahmed@hopital.com' },
+            { id: 2, name: 'Samar Hbib', position: 'Infirmière', phone: '+216 24 654 321', email: 'samar@hopital.com' },
+            { id: 3, name: 'Khaled Hmidi', position: 'Chirurgien', phone: '+216 22 987 654', email: 'khaled@hopital.com' },
+            { id: 4, name: 'Mouna Lamine', position: 'Pharmacien', phone: '+216 23 741 258', email: 'mouna@hopital.com' },
+            { id: 5, name: 'Amine Trabelsi', position: 'Infirmier', phone: '+216 25 321 654', email: 'amine@hopital.com' },
+            { id: 6, name: 'Yasmina Maalej', position: 'Médecin', phone: '+216 26 765 432', email: 'yasmina@hopital.com' },
+            { id: 7, name: 'Mounir Baccouche', position: 'Chirurgien', phone: '+216 27 234 567', email: 'mounir@hopital.com' },
+            { id: 8, name: 'Selma Ben Ahmed', position: 'Pharmacien', phone: '+216 28 876 543', email: 'selma@hopital.com' },
+            { id: 9, name: 'Nabil Hachicha', position: 'Médecin', phone: '+216 29 111 222', email: 'nabil@hopital.com' },
+            { id: 10, name: 'Meriem Zine', position: 'Infirmière', phone: '+216 21 654 987', email: 'meriem@hopital.com' }
+        ];
+
+        // Afficher les employés sur la page
+        const employeeList = document.getElementById('employeeList');
+
+        employees.forEach(employee => {
+            const card = document.createElement('div');
+            card.classList.add('employee-card');
+            card.innerHTML = `
+                <div class="contact-icons">
+                    <i class="fas fa-phone-alt"></i>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>${employee.name}</h3>
+                <p><strong>Poste:</strong> ${employee.position}</p>
+                <p><strong>Téléphone:</strong> ${employee.phone}</p>
+                <p><strong>Email:</strong> <a href="mailto:${employee.email}">${employee.email}</a></p>
+            `;
+            employeeList.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>

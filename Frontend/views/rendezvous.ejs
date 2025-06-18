@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Rendez-vous</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #6a5acd;
+      color: white;
+    }
+    form input, form button {
+      padding: 10px;
+      margin: 5px;
+    }
+    .delete-btn, .edit-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .edit-btn {
+      background-color: orange;
+    }
+    #btnRetour {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #btnRetour:hover {
+            background-color: #5a4dbf;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #btnRetour::before {
+            content: "←";
+            font-size: 20px;
+        }
+  </style>
+</head>
+<body>
+
+  <h1>Gestion des Rendez-vous</h1>
+
+  <!-- Formulaire d'ajout -->
+  <form action="/api/RendezVous/rendezvous" method="POST">
+    <input type="text" name="nomPatient" placeholder="Nom du patient" required />
+    <input type="text" name="nomMedecin" placeholder="Nom du médecin" required />
+    <input type="datetime-local" name="dateRendezVous" required />
+    <button type="submit">Enregistrer</button>
+  </form>
+
+  <!-- Tableau des rendez-vous -->
+  <table>
+    <thead>
+      <tr>
+        <th>Nom du patient</th>
+        <th>Nom du médecin</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% rendezvous.forEach((appt) => { %>
+        <tr>
+          <td><%= appt.nomPatient %></td>
+          <td><%= appt.nomMedecin %></td>
+          <td><%= new Date(appt.dateRendezVous).toLocaleString() %></td>
+          <td>
+            <!-- Formulaire pour Modifier -->
+            <button type="button" onclick="toggleForm(<%= appt.id %>)" class="edit-btn">Modifier</button>
+
+            <!-- Hidden Form for Editing -->
+            <div id="edit-form-<%= appt.id %>" style="display: none;">
+              <form action="/api/RendezVous/rendezvous/<%= appt.id %>?_method=PUT" method="POST" style="display:inline;">
+                <!-- Pre-filled form fields -->
+                <input type="text" name="nomPatient" value="<%= appt.nomPatient %>" required />
+                <input type="text" name="nomMedecin" value="<%= appt.nomMedecin %>" required />
+                <input type="datetime-local" name="dateRendezVous" value="<%= new Date(appt.dateRendezVous).toISOString().slice(0, 16) %>" required />
+                <button type="submit" class="edit-btn">Modifier</button>
+              </form>
+            </div>
+    
+            <!-- Formulaire pour Supprimer -->
+            <!-- Formulaire pour Supprimer -->
+<form action="/api/RendezVous/rendezvous/<%= appt.id %>?_method=DELETE" method="POST" style="display:inline;">
+  <button type="submit" class="delete-btn">Supprimer</button>
+</form>
+
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+    
+  </table>
+  <br>
+  <a href="/acceuil" style="text-decoration: none;"><button id="btnRetour">Retour</button></a>
+</body>
+<script>
+  function toggleForm(id) {
+    var form = document.getElementById('edit-form-' + id);
+    
+    // Toggle the display property to show/hide the form
+    if (form.style.display === "none") {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+    }
+  }
+</script>
+
+</html>

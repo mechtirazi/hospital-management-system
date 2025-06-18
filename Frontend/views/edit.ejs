@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier Médecin</title>
+  <style>
+    /* Styles généraux */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Conteneur principal */
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* Titre */
+    h1 {
+      color: #6a1b9a;
+      font-size: 24px;
+    }
+
+    /* Formulaire */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Champs du formulaire */
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #6a1b9a;
+      outline: none;
+      box-shadow: 0 0 5px rgba(106, 27, 154, 0.3);
+    }
+
+    /* Boutons */
+    button, a {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    /* Bouton enregistrer */
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #8e24aa;
+    }
+
+    /* Bouton annuler */
+    a {
+      background-color: #ccc;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    a:hover {
+      background-color: #b0b0b0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Modifier Médecin</h1>
+    <form id="editForm">
+      <input type="text" name="nom" value="<%= medecin.nom %>" required>
+      <input type="text" name="specialite" value="<%= medecin.specialite %>" required>
+      <input type="email" name="email" value="<%= medecin.email %>" required>
+      <input type="text" name="adresse" value="<%= medecin.adresse %>" required>
+      <button type="submit">Enregistrer</button>
+      <a href="/api/medecins/Listmedecins">Annuler</a>
+    </form>
+    
+    <script>
+    document.getElementById("editForm").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        const id = "<%= medecin.code %>"; // Get the doctor ID
+    
+        try {
+            const response = await fetch(`/api/medecins/edit/${id}`, {
+                method: "PUT", // Send PUT request
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+    
+            if (!response.ok) {
+                throw new Error("Erreur lors de la mise à jour");
+            }
+    
+            alert("Médecin mis à jour avec succès !");
+            window.location.href = "/api/medecins/Listmedecins"; // Redirect after success
+        } catch (error) {
+            console.error(error);
+            alert("Une erreur est survenue.");
+        }
+    });
+    </script>
+    
+  </div>
+
+</body>
+</html>
